@@ -6,7 +6,7 @@ Feature: Login
 
   @automated
   Scenario: User can sign in with valid value
-    Given user is in Katalon login page
+    Given user is in Katalon login page1
     When user sets username as "John Doe" and password as "ThisIsNotAPassword"
     And user clicks on login button
     Then user sees appointment page
