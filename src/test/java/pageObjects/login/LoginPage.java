@@ -17,6 +17,7 @@ public class LoginPage extends TestBase {
     }
 
     public static WebElement password() {
+
         return $(By.xpath("//*[@id='txt-password']"));
     }
 
@@ -24,5 +25,9 @@ public class LoginPage extends TestBase {
         element = $(By.xpath("//*[@id='btn-login']"));
         return element;
     }
-}
 
+    public static WebElement errorMessage() {
+        element = $(By.xpath("//*[@class='lead text-danger']"));
+        return element;
+    }
+}

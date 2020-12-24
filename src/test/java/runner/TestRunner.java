@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = {"src/test/resources"},
         glue = {"stepDefinition"},
-        tags = {"@automated"},
+//        tags = {"@automated"},
         format = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber-pretty",

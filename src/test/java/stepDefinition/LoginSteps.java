@@ -1,5 +1,6 @@
 package stepDefinition;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -32,7 +33,8 @@ public class LoginSteps extends TestBase {
 
     @Given("^user is in Katalon login page$")
     public void userIsInKatalonLoginPage() {
-        driver.get(getPropertiesValue.getPropValues("Base_URL.properties", "BASE_URL")+"/profile.php#login");
+        driver.get("https://katalon-demo-cura.herokuapp.com/profile.php#login");
+//        driver.get(getPropertiesValue.getPropValues("Base_URL.properties", "BASE_URL")+"/profile.php#login");
     }
 
     @And("^user clicks on login button$")
@@ -43,5 +45,10 @@ public class LoginSteps extends TestBase {
     @Then("^user sees appointment page$")
     public void userSeesAppointmentPage() {
         Assert.assertTrue(AppointmentPage.facilityBox().isDisplayed());
+    }
+
+    @Then("^user sees \"([^\"]*)\"$")
+    public void userSees(String error){
+        Assert.assertEquals(error, LoginPage.errorMessage().getText());
     }
 }
