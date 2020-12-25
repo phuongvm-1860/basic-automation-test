@@ -19,29 +19,26 @@ public class LoginSteps extends TestBase {
         scenarioContext = context;
     }
 
-    @When("^Admin navigates to Admin site again$")
-    public void admin_navigates_to_Admin_site_again() {
-        driver.get(getPropertiesValue.getPropValues("Base_URL.properties", "ADMIN_BASE_URL"));
+    @Given("^user is in Katalon login page$")
+    public void userIsInKatalonLoginPage() {
+        driver.get(getPropertiesValue.getPropValues("Base_URL.properties", "BASE_URL") + "/profile.php#login");
     }
 
     @When("^user sets username as \"([^\"]*)\" and password as \"([^\"]*)\"$")
-    public void userSetsUsernameAsAndPasswordAs(String username, String password) throws Throwable {
+    public void userSetsUsernameAsAndPasswordAs(String username, String password){
         LoginPage.username().sendKeys(username);
         LoginPage.password().sendKeys(password);
-    }
-
-    @Given("^user is in Katalon login page$")
-    public void userIsInKatalonLoginPage() {
-        driver.get(getPropertiesValue.getPropValues("Base_URL.properties", "BASE_URL")+"/profile.php#login");
     }
 
     @And("^user clicks on login button$")
     public void userClicksOnLoginButton() {
         LoginPage.loginButton().click();
     }
-
     @Then("^user sees appointment page$")
-    public void userSeesAppointmentPage() {
-        Assert.assertTrue(AppointmentPage.facilityBox().isDisplayed());
+    public void userSeesAppointmentPage() { Assert.assertTrue(AppointmentPage.facilityBox().isDisplayed());
+    }
+    @Then("^user can not login and user sees message as \"([^\"]*)\"$")
+    public void userCanNotLoginAndUserSeesMessageAs(String message){
+        Assert.assertEquals(message, LoginPage.errorMessage().getText());
     }
 }
