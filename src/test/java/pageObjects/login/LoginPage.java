@@ -24,5 +24,10 @@ public class LoginPage extends TestBase {
         element = $(By.xpath("//*[@id='btn-login']"));
         return element;
     }
+
+    public static WebElement error() {
+        element = $(By.xpath("//*[@class=\"lead text-danger\"]"));
+        return element;
+    }
 }
 

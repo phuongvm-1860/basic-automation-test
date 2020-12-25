@@ -20,7 +20,7 @@ public enum DriverType implements DriverSetup {
             chromePrefs.put("download.default_directory", System.getProperty("user.dir")  + File.separator + "src\\test\\resources\\csvFile");
             ChromeOptions options = new ChromeOptions();
             options.setExperimentalOption("prefs", chromePrefs);
-            options.setHeadless(HEADLESS);
+            options.setHeadless(true);
             options.addArguments("--disable-gpu", "--window-size=1920,1200", "--ignore-certificate-errors");
 
             return new ChromeDriver(options);

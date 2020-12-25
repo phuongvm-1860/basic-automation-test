@@ -1,10 +1,13 @@
 package stepDefinition;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.Select;
 import pageObjects.login.AppointmentPage;
 import pageObjects.login.LoginPage;
 import utility.GetPropertiesValue;
@@ -25,7 +28,7 @@ public class LoginSteps extends TestBase {
     }
 
     @When("^user sets username as \"([^\"]*)\" and password as \"([^\"]*)\"$")
-    public void userSetsUsernameAsAndPasswordAs(String username, String password) throws Throwable {
+    public void userSetsUsernameAsAndPasswordAs(String username, String password){
         LoginPage.username().sendKeys(username);
         LoginPage.password().sendKeys(password);
     }
@@ -44,4 +47,10 @@ public class LoginSteps extends TestBase {
     public void userSeesAppointmentPage() {
         Assert.assertTrue(AppointmentPage.facilityBox().isDisplayed());
     }
+
+    @Then("^user sees \"([^\"]*)\"$")
+    public void userSees(String error) {
+    Assert.assertEquals(LoginPage.error().getText(),error);
+    }
+    
 }

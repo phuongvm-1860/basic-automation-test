@@ -5,7 +5,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"src/test/resources"},
+        features = {"src/test/resources/History.feature"},
         glue = {"stepDefinition"},
         tags = {"@automated"},
         format = {
