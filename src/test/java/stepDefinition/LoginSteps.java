@@ -42,6 +42,7 @@ public class LoginSteps extends TestBase {
 
     @Then("^user sees appointment page$")
     public void userSeesAppointmentPage() {
+
         Assert.assertTrue(AppointmentPage.facilityBox().isDisplayed());
     }
 }

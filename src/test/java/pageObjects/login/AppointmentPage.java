@@ -11,6 +11,49 @@ public class AppointmentPage extends TestBase {
     }
 
     public static WebElement facilityBox() {
+
         return $(By.xpath("//*[@id='combo_facility']"));
+    }
+
+    public static WebElement applyCheckbox() {
+        element = $(By.xpath("//*[@for='chk_hospotal_readmission']"));
+        return element;
+    }
+
+    public static WebElement MedicareRadiobtn() {
+        element = $(By.xpath("//*[@id='radio_program_medicare']"));
+        return element;
+    }
+
+    public static WebElement MedicaidRadiobtn() {
+        element = $(By.xpath("//*[@id='radio_program_medicaid']"));
+        return element;
+    }
+
+    public static WebElement NoneRadiobtn() {
+        element = $(By.xpath("//*[@id='radio_program_none']"));
+        return element;
+    }
+
+    public static WebElement dateBox() {
+        element = $(By.xpath("//*[@id='txt_visit_date']"));
+        return element;
+    }
+
+    public static WebElement commentBox() {
+        element = $(By.xpath("//*[@id='txt_comment']"));
+        return element;
+    }
+
+    public static WebElement BookAppointmentbtn() {
+        element = $(By.xpath("//*[@id='btn-book-appointment']"));
+        return element;
+    }
+    public static WebElement menu() {
+        return $(By.xpath("//*[@id='menu-toggle']"));
+    }
+
+    public static WebElement logutBtn() {
+        return $(By.xpath("//a[contains(.,'Logout')]"));
     }
 }

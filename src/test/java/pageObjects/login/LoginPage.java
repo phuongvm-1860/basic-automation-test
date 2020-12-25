@@ -17,6 +17,7 @@ public class LoginPage extends TestBase {
     }
 
     public static WebElement password() {
+
         return $(By.xpath("//*[@id='txt-password']"));
     }
 
