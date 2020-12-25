@@ -11,6 +11,11 @@ public class LoginPage extends TestBase {
     public LoginPage() {
     }
 
+    public static WebElement MakeAppoinmentButton() {
+
+        return $(By.xpath("//*[@id='btn-make-appointment']"));
+    }
+
     public static WebElement username() {
         element = $(By.xpath("//*[@id='txt-username']"));
         return element;
@@ -22,6 +27,10 @@ public class LoginPage extends TestBase {
 
     public static WebElement loginButton() {
         element = $(By.xpath("//*[@id='btn-login']"));
+        return element;
+    }
+    public static WebElement error() {
+        element = $(By.xpath("//*[@class=\"lead text-danger\"]"));
         return element;
     }
 }

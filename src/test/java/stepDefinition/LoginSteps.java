@@ -1,5 +1,6 @@
 package stepDefinition;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -43,5 +44,11 @@ public class LoginSteps extends TestBase {
     @Then("^user sees appointment page$")
     public void userSeesAppointmentPage() {
         Assert.assertTrue(AppointmentPage.facilityBox().isDisplayed());
+    }
+
+    @Then("^user sees \"([^\"]*)\"$")
+    public void userSees(String error) throws Throwable {
+        Assert.assertEquals(LoginPage.error().getText(),error);
+        throw new PendingException();
     }
 }
