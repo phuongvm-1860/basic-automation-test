@@ -5,8 +5,8 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
-import pageObjects.login.AppointmentPage;
-import pageObjects.login.LoginPage;
+import pageObjects.AppointmentPage;
+import pageObjects.LoginPage;
 import utility.GetPropertiesValue;
 import utility.ScenarioContext;
 import utility.TestBase;
@@ -25,7 +25,7 @@ public class LoginSteps extends TestBase {
     }
 
     @When("^user sets username as \"([^\"]*)\" and password as \"([^\"]*)\"$")
-    public void userSetsUsernameAsAndPasswordAs(String username, String password) throws Throwable {
+    public void userSetsUsernameAsAndPasswordAs(String username, String password) {
         LoginPage.username().sendKeys(username);
         LoginPage.password().sendKeys(password);
     }
